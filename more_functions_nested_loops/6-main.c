@@ -1,12 +1,16 @@
 #include "main.h"
 
+/**
+ * main - Check the code for print_line function.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-    // Tester la fonction print_line avec différentes valeurs de n
-    print_line(5);  // Affichera: _____
-    print_line(0);  // Affichera juste un saut de ligne
-    print_line(-3); // Affichera juste un saut de ligne
-    print_line(10); // Affichera: ____________
-
-    return 0;
+    print_line(0);
+    print_line(2);
+    print_line(10);
+    print_line(-4);
+    return (0);
 }
+
