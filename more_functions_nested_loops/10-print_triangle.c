@@ -11,7 +11,7 @@ void print_char(char c)
 }
 
 /**
- * print_triangle - Affiche un triangle avec des '#' et remplace les espaces par '.'
+ * print_triangle - Affiche un triangle avec des '#' et des espaces
  * @size: Taille du triangle
  */
 void print_triangle(int size)
@@ -26,10 +26,10 @@ void print_triangle(int size)
 
     for (row = 1; row <= size; row++)
     {
-        /* Afficher les espaces sous forme de points */
+        /* Afficher les espaces pour aligner le triangle */
         for (spaces = 1; spaces <= size - row; spaces++)
         {
-            print_char('.');
+            print_char(' ');  /* Utilisation d'un espace au lieu d'un point */
         }
 
         /* Afficher les dièses */
@@ -38,8 +38,7 @@ void print_triangle(int size)
             print_char('#');
         }
 
-        /* Afficher le caractère '$' en fin de ligne */
-        print_char('$');
+        /* Aller à la ligne */
         print_char('\n');
     }
 }
