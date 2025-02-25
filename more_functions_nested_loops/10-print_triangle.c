@@ -13,9 +13,9 @@ void print_triangle(int size)
 	{
 		for (i = 0; i < size; i++)
 		{
-			for (j = size; j > i; j--)
+			for (j = size; j > i + 1; j--)
 			{
-				_putchar(32);
+				_putchar(35);
 			}
 			for (k = 0; k < i + 1; k++)
 			{
