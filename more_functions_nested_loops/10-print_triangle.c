@@ -1,33 +1,27 @@
+#include "main.h"
 #include <stdio.h>
 
-/**
- * print_triangle - Fonction qui imprime un triangle de taille n.
- * @n: La taille du triangle (le nombre de lignes).
- * 
- * Cette fonction imprime un triangle composé de caractères '#' alignés à droite.
- * Si n est 0 ou négatif, la fonction ne fait rien et imprime uniquement un retour à la ligne.
- */
-void print_triangle(int n)
+void print_triangle(int size)
 {
-    int i, j;
+    int row, spaces, hashes;
 
-    if (n <= 0)
+    for (row = 1; row <= size; row++)
     {
-        printf("\n");
-        return;
-    }
+        /* Afficher les espaces sous forme de points */
+        for (spaces = 1; spaces <= size - row; spaces++)
+        {
+            putchar('.');
+        }
 
-    for (i = 1; i <= n; i++)
-    {
-        for (j = 1; j <= n - i; j++)
+        /* Afficher les dièses */
+        for (hashes = 1; hashes <= row; hashes++)
         {
-            printf(" ");  /* Imprimer les espaces avant les #. */
+            putchar('#');
         }
-        for (j = 1; j <= i; j++)
-        {
-            printf("#");  /* Imprimer les # pour chaque ligne du triangle. */
-        }
-        printf("\n");  /* Passer à la ligne suivante après chaque ligne du triangle. */
+
+        /* Afficher le caractère '$' en fin de ligne */
+        putchar('$');
+        putchar('\n');
     }
 }
 
