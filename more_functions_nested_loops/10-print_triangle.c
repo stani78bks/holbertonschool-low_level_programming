@@ -1,9 +1,19 @@
 #include "main.h"
 #include <stdio.h>
 
+/**
+ * print_triangle - Affiche un triangle avec des '#' et remplace les espaces par '.'
+ * @size: Taille du triangle
+ */
 void print_triangle(int size)
 {
     int row, spaces, hashes;
+
+    if (size <= 0)
+    {
+        putchar('\n'); /* Ajoute une ligne vide comme attendu */
+        return;
+    }
 
     for (row = 1; row <= size; row++)
     {
