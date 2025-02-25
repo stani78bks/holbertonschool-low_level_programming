@@ -1,5 +1,14 @@
 #include "main.h"
-#include <stdio.h>
+#include <unistd.h>
+
+/**
+ * print_char - Écrit un caractère sur la sortie standard
+ * @c: Caractère à afficher
+ */
+void print_char(char c)
+{
+    write(1, &c, 1);
+}
 
 /**
  * print_triangle - Affiche un triangle avec des '#' et remplace les espaces par '.'
@@ -11,7 +20,7 @@ void print_triangle(int size)
 
     if (size <= 0)
     {
-        putchar('\n'); /* Ajoute une ligne vide comme attendu */
+        print_char('\n'); /* Affiche une ligne vide */
         return;
     }
 
@@ -20,18 +29,18 @@ void print_triangle(int size)
         /* Afficher les espaces sous forme de points */
         for (spaces = 1; spaces <= size - row; spaces++)
         {
-            putchar('.');
+            print_char('.');
         }
 
         /* Afficher les dièses */
         for (hashes = 1; hashes <= row; hashes++)
         {
-            putchar('#');
+            print_char('#');
         }
 
         /* Afficher le caractère '$' en fin de ligne */
-        putchar('$');
-        putchar('\n');
+        print_char('$');
+        print_char('\n');
     }
 }
 
