@@ -10,22 +10,23 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-    int i = 0, j = 0;
+	int i = 0, j = 0;
 
-    /* Trouver la fin de la chaîne dest */
-    while (dest[i] != '\0')
-        i++;
+	/* Trouver la fin de la chaîne dest */
+	while (dest[i] != '\0')
+		i++;
 
-    /* Ajouter src à dest en utilisant au plus n caractères */
-    while (src[j] != '\0' && j < n)
-    {
-        dest[i] = src[j];
-        i++;
-        j++;
-    }
+	/* Ajouter src à dest en utilisant au plus n caractères */
+	while (src[j] != '\0' && j < n)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
 
-    /* Ajouter le caractère nul de fin */
-    dest[i] = '\0';
+	/* Ajouter le caractère nul de fin */
+	dest[i] = '\0';
 
-    return (dest);
+	return (dest);
 }
+
