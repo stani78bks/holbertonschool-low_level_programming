@@ -1,8 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-void puts_half(char *str);
-int _putchar(char c);
+#include <stdio.h> /* Pour printf */
+
+/* Prototype de la fonction */
+void print_array(int *a, int n);
 
 #endif /* MAIN_H */
 
