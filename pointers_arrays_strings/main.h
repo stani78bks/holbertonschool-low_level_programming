@@ -4,7 +4,7 @@
 #include <stdio.h> /* Pour printf */
 
 /* Prototype de la fonction */
-void print_array(int *a, int n);
+char *_strcpy(char *dest, char *src);
 
 #endif /* MAIN_H */
 
