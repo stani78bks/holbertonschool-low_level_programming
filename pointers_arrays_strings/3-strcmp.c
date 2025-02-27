@@ -11,16 +11,16 @@
  */
 int _strcmp(char *s1, char *s2)
 {
-    while (*s1 && *s2)
-    {
-        if (*s1 != *s2)
-        {
-            return (*s1 - *s2); /* Retourne la différence entre les deux caractères */
-        }
-        s1++;
-        s2++;
-    }
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+		{
+			return (*s1 - *s2);
+		}
+		s1++;
+		s2++;
+	}
 
-    return (*s1 - *s2); /* Si les chaînes sont égales jusqu'à la fin de l'une d'elles */
+	return (*s1 - *s2);
 }
 
