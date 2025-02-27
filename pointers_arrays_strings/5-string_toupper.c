@@ -1,36 +1,27 @@
-Write a function that changes all lowercase letters of a string to uppercase.
-
-    Prototype: char *string_toupper(char *);
-
-julien@ubuntu:~/$ cat 5-main.c
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * string_toupper - Changes all lowercase letters of a string to uppercase.
+ * @str: The input string.
+ * 
+ * Return: The resulting string with all lowercase letters changed to uppercase.
  */
-int main(void)
+char *string_toupper(char *str)
 {
-    char str[] = "Look up!\n";
-    char *ptr;
+    int i = 0;
 
-    ptr = string_toupper(str);
-    printf("%s", ptr);
-    printf("%s", str);
-    return (0);
+    // Iterate through each character of the string
+    while (str[i] != '\0')
+    {
+        // Check if the character is a lowercase letter
+        if (str[i] >= 'a' && str[i] <= 'z')
+        {
+            // Convert it to uppercase
+            str[i] = str[i] - 32;
+        }
+        i++;
+    }
+    
+    return str;
 }
-julien@ubuntu:~/$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 5-string_toupper.c -o 5-string_toupper
-julien@ubuntu:~/$ ./5-string_toupper 
-LOOK UP!
-LOOK UP!
-julien@ubuntu:~/$ 
-
-Repo:
-
-    GitHub repository: holbertonschool-low_level_programming
-    Directory: pointers_arrays_strings
-    File: 5-string_toupper.c
-
 
