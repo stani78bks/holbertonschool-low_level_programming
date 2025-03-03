@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h> /* Pour NULL */
 
 /**
  * _strchr - Locates a character in a string.
@@ -16,8 +17,9 @@ char *_strchr(char *s, char c)
 		s++;
 	}
 
-	if (*s == c) /* Check for null terminator case */
+	if (c == '\0') /* Gérer le cas où c est '\0' */
 		return (s);
 
 	return (NULL);
 }
+
