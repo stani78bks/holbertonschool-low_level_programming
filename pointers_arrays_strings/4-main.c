@@ -13,8 +13,6 @@ int main(void)
     char *t;
 
     t = _strpbrk(s, f);
-    printf("%s\n", t);  /* should print 'llo, world' */
-
+    printf("%s\n", t);
     return (0);
 }
-
