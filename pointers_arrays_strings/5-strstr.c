@@ -7,8 +7,8 @@
  * @haystack: La chaîne principale dans laquelle chercher.
  * @needle: La sous-chaîne à rechercher.
  *
- * Retourne : un pointeur vers le début de la sous-chaîne si trouvée,
- *            ou NULL si la sous-chaîne n'est pas trouvée.
+ * Return: Un pointeur vers le début de la sous-chaîne si trouvée,
+ *         ou NULL si la sous-chaîne n'est pas trouvée.
  */
 char *_strstr(char *haystack, char *needle)
 {
