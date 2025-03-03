@@ -11,21 +11,21 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-    while (*s) /* loop through each character of string s */
+    while (*s)  /* loop through each character of string s */
     {
         char *a = accept;
 
-        while (*a) /* loop through each character of accept */
+        while (*a)  /* loop through each character of accept */
         {
-            if (*s == *a) /* check if there's a match */
+            if (*s == *a)  /* check if there's a match */
             {
-                return (s); /* return pointer to the matching byte in s */
+                return (s);  /* return pointer to the matching byte in s */
             }
             a++;
         }
         s++;
     }
 
-    return (NULL); /* return NULL if no match is found */
+    return (NULL);  /* return NULL if no match is found */
 }
 
