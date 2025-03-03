@@ -2,30 +2,30 @@
 #include <stddef.h> /* pour NULL */
 
 /**
- * _strpbrk - cherche un caractère dans une chaîne parmi un ensemble de caractères
- * @s: chaîne à rechercher
- * @accept: ensemble de caractères à rechercher dans la chaîne
+ * _strpbrk - cherche le premier caractère d'une chaîne qui correspond à un caractère de l'ensemble accept.
+ * @s: chaîne à parcourir
+ * @accept: ensemble de caractères à chercher
  *
- * Retour: un pointeur vers le premier caractère dans s qui correspond à l'un des caractères dans accept,
+ * Retour: un pointeur vers le premier caractère de s qui correspond à un caractère de accept,
  *         ou NULL si aucun caractère ne correspond.
  */
 char *_strpbrk(char *s, char *accept)
 {
-    while (*s) /* boucle à travers chaque caractère de la chaîne s */
+    while (*s) /* Tant qu'il y a des caractères dans s */
     {
         char *a = accept;
 
-        while (*a) /* boucle à travers chaque caractère de accept */
+        while (*a) /* Parcourt accept */
         {
-            if (*s == *a) /* vérifier si un caractère correspond */
+            if (*s == *a) /* Si un caractère de s est trouvé dans accept */
             {
-                return (s); /* retourner le pointeur vers le caractère correspondant dans s */
+                return (s); /* Retourne un pointeur vers ce caractère dans s */
             }
             a++;
         }
-        s++;
+        s++; /* Passe au caractère suivant dans s */
     }
 
-    return (NULL); /* retourner NULL si aucun caractère ne correspond */
+    return (NULL); /* Aucun caractère de s ne correspond à accept */
 }
 
