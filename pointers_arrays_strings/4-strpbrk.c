@@ -1,31 +1,33 @@
 #include "main.h"
-#include <stddef.h> /* for NULL */
+#include <stddef.h>  /* pour NULL */
 
 /**
- * _strpbrk - searches a string for any of a set of bytes
- * @s: string to search
- * @accept: set of bytes to look for in the string
+ * _strpbrk - cherche un caractère dans une chaîne parmi un ensemble de caractères
+ * @s: chaîne à rechercher
+ * @accept: ensemble de caractères à rechercher dans la chaîne
  *
- * Return: a pointer to the byte in s that matches one of the bytes in accept,
- *         or NULL if no such byte is found
+ * Retourne un pointeur vers le premier caractère dans s qui correspond à l'un des caractères dans accept,
+ * ou NULL si aucun caractère ne correspond.
  */
 char *_strpbrk(char *s, char *accept)
 {
-    while (*s) /* loop through each character of string s */
+    /* Boucle à travers chaque caractère de la chaîne s */
+    while (*s)
     {
         char *a = accept;
 
-        while (*a) /* loop through each character of accept */
+        /* Boucle à travers chaque caractère de accept */
+        while (*a)
         {
-            if (*s == *a) /* check if there's a match */
+            if (*s == *a)  /* Si un caractère correspond */
             {
-                return (s); /* return pointer to the matching byte in s */
+                return (s);  /* Retourne le pointeur vers le caractère trouvé */
             }
-            a++;
+            a++;  /* Passage au caractère suivant de accept */
         }
-        s++;
+        s++;  /* Passage au caractère suivant de s */
     }
 
-    return (NULL); /* return NULL if no match is found */
+    return (NULL);  /* Retourne NULL si aucun caractère correspondant n'est trouvé */
 }
 
