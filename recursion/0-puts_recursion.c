@@ -1,19 +1,20 @@
 #include "main.h"
 
 /**
- * _puts_recursion - Affiche une chaîne de caractères suivie d'un saut de ligne.
- * @s: La chaîne de caractères à afficher.
+ * _puts_recursion - Prints a string followed by a new line
+ * @s: The string to print
+ *
+ * Return: void
  */
 void _puts_recursion(char *s)
 {
-    if (*s)  /* Si on n'a pas atteint la fin de la chaîne */
+    if (*s == '\0')  /* Base case: if the string is empty */
     {
-        _putchar(*s);  /* Affiche le caractère courant */
-        _puts_recursion(s + 1);  /* Appel récursif pour le caractère suivant */
+        _putchar('\n');  /* Print a new line */
+        return;
     }
-    else
-    {
-        _putchar('\n');  /* Affiche un saut de ligne une fois la chaîne terminée */
-    }
+
+    _putchar(*s);  /* Print the current character */
+    _puts_recursion(s + 1);  /* Recursively call the function with the next character */
 }
 
