@@ -1,12 +1,13 @@
 #include <unistd.h>
 
 /**
- * _putchar - imprime un caractère à stdout
- * @c: Le caractère à imprimer
- * 
- * Retour : En cas de succès, retourne le caractère imprimé.
+ * _putchar - writes a character to stdout
+ * @c: the character to write
+ *
+ * Return: 1 on success, -1 on error.
  */
 int _putchar(char c)
 {
-    return write(1, &c, 1);  /* Utilise l'appel système write pour imprimer un caractère */
+return (write(1, &c, 1));  /* Assurez-vous qu'il n'y a pas d'espace ici */
 }
+
