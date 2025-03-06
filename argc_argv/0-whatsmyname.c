@@ -9,9 +9,9 @@
  */
 int main(int argc, char *argv[])
 {
-    (void)argc; /* Évite l'avertissement de paramètre non utilisé */
-    
-    printf("%s\n", argv[0]);
-    return (0);
+	(void)argc; /* Évite l'avertissement de paramètre non utilisé */
+	printf("%s\n", argv[0]);
+
+	return (0);
 }
 
