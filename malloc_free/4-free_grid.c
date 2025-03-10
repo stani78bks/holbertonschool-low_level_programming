@@ -9,18 +9,16 @@
  */
 void free_grid(int **grid, int height)
 {
-    int i;
+	if (grid == NULL)
+		return;
 
-    if (grid == NULL)
-        return;
+	/* Libérer chaque ligne */
+	for (int i = 0; i < height; i++)
+	{
+		free(grid[i]);
+	}
 
-    /* Libérer chaque ligne */
-    for (i = 0; i < height; i++)
-    {
-        free(grid[i]);
-    }
-
-    /* Libérer le tableau principal */
-    free(grid);
+	/* Libérer le tableau principal */
+	free(grid);
 }
 
