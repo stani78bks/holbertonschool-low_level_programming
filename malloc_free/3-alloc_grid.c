@@ -1,45 +1,43 @@
 #include <stdlib.h>
 
 /**
- * alloc_grid - Crée un tableau 2D d'entiers, initialisé à 0.
- * @width: La largeur du tableau.
- * @height: La hauteur du tableau.
+ * alloc_grid - Creates a 2D grid of integers.
+ * @width: Width of the grid.
+ * @height: Height of the grid.
  *
- * Retourne: Un pointeur vers un tableau 2D d'entiers alloué, ou NULL en cas
- * d'échec. Si width ou height est inférieur ou égal à 0, retourne NULL.
+ * Return: A pointer to the 2D grid, or NULL if allocation fails or if
+ * width or height is 0 or negative.
  */
 int **alloc_grid(int width, int height)
 {
 	int **grid;
 	int i, j;
 
-	/* Vérifier si la largeur ou la hauteur sont invalides (<= 0) */
+	/* If width or height is less than or equal to 0, return NULL */
 	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	/* Allouer de la mémoire pour les lignes du tableau */
-	grid = (int **)malloc(height * sizeof(int *));
+	/* Allocate memory for the array of pointers (height number of rows) */
+	grid = malloc(height * sizeof(int *));
 	if (grid == NULL)
 		return (NULL);
 
-	/* Allouer de la mémoire pour chaque ligne et initialiser à 0 */
+	/* Allocate memory for each row and initialize to 0 */
 	for (i = 0; i < height; i++)
 	{
-		grid[i] = (int *)malloc(width * sizeof(int));
+		grid[i] = malloc(width * sizeof(int));
 		if (grid[i] == NULL)
 		{
-			/* Si l'allocation échoue, libérer les lignes déjà allouées */
+			/* Free previously allocated memory if allocation fails */
 			for (j = 0; j < i; j++)
 				free(grid[j]);
 			free(grid);
 			return (NULL);
 		}
 
-		/* Initialiser chaque élément de la ligne à 0 */
+		/* Initialize each element to 0 */
 		for (j = 0; j < width; j++)
-		{
 			grid[i][j] = 0;
-		}
 	}
 
 	return (grid);
