@@ -1,21 +1,21 @@
 #ifndef DOG_H
 #define DOG_H
 
-/**
- * struct dog - A structure to represent a dog
- * @name: Name of the dog (type char*)
- * @age: Age of the dog (type float)
- * @owner: Owner of the dog (type char*)
- */
+#include <stddef.h> /* To use NULL */
+
+/* Define the struct dog */
 struct dog
 {
-char *name;   /* Name of the dog */
-float age;    /* Age of the dog */
-char *owner;  /* Owner of the dog */
+    char *name;
+    float age;
+    char *owner;
 };
 
-/* Creating a typedef for the struct */
+/* Define the typedef for dog_t */
 typedef struct dog dog_t;
 
-#endif /* DOG_H */
+/* Declare the init_dog function */
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
+#endif
 
