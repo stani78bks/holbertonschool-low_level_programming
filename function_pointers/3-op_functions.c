@@ -1,74 +1,67 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * op_add - Returns the sum of a and b
- * @a: First integer
- * @b: Second integer
- *
- * Return: Sum of a and b
+ * op_add - Renvoie la somme de deux nombres
+ * @a: Premier nombre
+ * @b: Deuxième nombre
+ * Return: La somme de a et b
  */
 int op_add(int a, int b)
 {
-	return (a + b);
+    return (a + b);
 }
 
 /**
- * op_sub - Returns the difference of a and b
- * @a: First integer
- * @b: Second integer
- *
- * Return: Difference of a and b
+ * op_sub - Renvoie la différence entre deux nombres
+ * @a: Premier nombre
+ * @b: Deuxième nombre
+ * Return: La différence entre a et b
  */
 int op_sub(int a, int b)
 {
-	return (a - b);
+    return (a - b);
 }
 
 /**
- * op_mul - Returns the product of a and b
- * @a: First integer
- * @b: Second integer
- *
- * Return: Product of a and b
+ * op_mul - Renvoie le produit de deux nombres
+ * @a: Premier nombre
+ * @b: Deuxième nombre
+ * Return: Le produit de a et b
  */
 int op_mul(int a, int b)
 {
-	return (a * b);
+    return (a * b);
 }
 
 /**
- * op_div - Returns the result of the division of a by b
- * @a: First integer
- * @b: Second integer
- *
- * Return: Quotient of a divided by b
+ * op_div - Renvoie le quotient de la division de a par b
+ * @a: Premier nombre
+ * @b: Deuxième nombre
+ * Return: Le quotient de a divisé par b
  */
 int op_div(int a, int b)
 {
-	if (b == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
-	return (a / b);
+    if (b == 0)
+    {
+        printf("Error\n");
+        exit(100);
+    }
+    return (a / b);
 }
 
 /**
- * op_mod - Returns the remainder of the division of a by b
- * @a: First integer
- * @b: Second integer
- *
- * Return: Remainder of a divided by b
+ * op_mod - Renvoie le reste de la division de a par b
+ * @a: Premier nombre
+ * @b: Deuxième nombre
+ * Return: Le reste de a divisé par b
  */
 int op_mod(int a, int b)
 {
-	if (b == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
-	return (a % b);
+    if (b == 0)
+    {
+        printf("Error\n");
+        exit(100);
+    }
+    return (a % b);
 }
 
