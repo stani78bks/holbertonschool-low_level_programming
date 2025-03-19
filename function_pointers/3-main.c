@@ -1,50 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "3-calc.h"
 
 /**
- * main - Entry point of the program.
- * @argc: Number of arguments.
- * @argv: Array of argument strings.
+ * main - Entry point for the calculator program
+ * @argc: Number of arguments
+ * @argv: Array of argument strings
  *
- * This program takes two integers and an operator as input and performs
- * the corresponding operation (addition, subtraction, multiplication,
- * division, or modulo). It handles invalid input and division by zero
- * errors.
- *
- * Return: 0 if the program runs successfully, exits with status 98, 99,
- * or 100 for errors.
+ * Return: 0 on success, exits with an error code otherwise
  */
 int main(int argc, char *argv[])
 {
-	int num1, num2;
-	int (*operation)(int, int);
+    int num1, num2;
+    int (*operation)(int, int);
 
-	if (argc != 4)
-	{
-		printf("Error\n");
-		exit(98);
-	}
+    if (argc != 4)
+    {
+        printf("Error\n");
+        exit(98);
+    }
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
+    /* Convert numbers and check for invalid inputs */
+    char *endptr;
+    num1 = strtol(argv[1], &endptr, 10);
+    if (*endptr != '\0')
+    {
+        printf("Error\n");
+        exit(98);
+    }
 
-	operation = get_op_func(argv[2]);
+    num2 = strtol(argv[3], &endptr, 10);
+    if (*endptr != '\0')
+    {
+        printf("Error\n");
+        exit(98);
+    }
 
-	if (operation == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
+    /* Get operation function */
+    operation = get_op_func(argv[2]);
 
-	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
+    /* Check if the operator is valid */
+    if (strlen(argv[2]) != 1 || operation == NULL)
+    {
+        printf("Error\n");
+        exit(99);
+    }
 
-	printf("%d\n", operation(num1, num2));
+    /* Check division by zero */
+    if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
+    {
+        printf("Error\n");
+        exit(100);
+    }
 
-	return (0);
+    /* Perform the operation */
+    printf("%d\n", operation(num1, num2));
+
+    return (0);
 }
 
