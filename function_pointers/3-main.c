@@ -12,51 +12,39 @@
  */
 int main(int argc, char *argv[])
 {
-    int num1, num2;
-    int (*operation)(int, int);
+	int num1, num2;
+	int (*operation)(int, int);
 
-    if (argc != 4)
-    {
-        printf("Error\n");
-        exit(98);
-    }
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-    /* Convert numbers and check for invalid inputs */
-    char *endptr;
-    num1 = strtol(argv[1], &endptr, 10);
-    if (*endptr != '\0')
-    {
-        printf("Error\n");
-        exit(98);
-    }
+	/* Convert numbers and check for invalid inputs */
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
 
-    num2 = strtol(argv[3], &endptr, 10);
-    if (*endptr != '\0')
-    {
-        printf("Error\n");
-        exit(98);
-    }
+	/* Get operation function */
+	operation = get_op_func(argv[2]);
 
-    /* Get operation function */
-    operation = get_op_func(argv[2]);
+	/* Check if the operator is valid */
+	if (strlen(argv[2]) != 1 || operation == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
-    /* Check if the operator is valid */
-    if (strlen(argv[2]) != 1 || operation == NULL)
-    {
-        printf("Error\n");
-        exit(99);
-    }
+	/* Check division by zero */
+	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
 
-    /* Check division by zero */
-    if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
-    {
-        printf("Error\n");
-        exit(100);
-    }
+	/* Perform the operation */
+	printf("%d\n", operation(num1, num2));
 
-    /* Perform the operation */
-    printf("%d\n", operation(num1, num2));
-
-    return (0);
+	return (0);
 }
 
